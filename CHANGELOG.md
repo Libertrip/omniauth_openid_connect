@@ -1,3 +1,6 @@
+# v0.4.0
+- Add support to Ruby 2.3
+
 # v0.3.1 (08.06.2019)
 
 - Set default OmniAuth name to openid_connect [#23](https://github.com/m0n9oose/omniauth_openid_connect/pull/23)
