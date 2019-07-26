@@ -210,8 +210,8 @@ module OmniAuth
         real_public_key =
           if public_key == :self_issued
             public_key
-          elsif public_key.detect {|k| k[:kid].present? }
-            public_key
+          # elsif public_key.detect {|k| k[:kid].present? }
+          #   public_key
           else
             public_key.first
           end
