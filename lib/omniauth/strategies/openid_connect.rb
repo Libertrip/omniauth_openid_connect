@@ -207,7 +207,15 @@ module OmniAuth
       end
 
       def decode_id_token(id_token)
-        ::OpenIDConnect::ResponseObject::IdToken.decode(id_token, public_key)
+        real_public_key =
+          if public_key == :self_issued
+            public_key
+          elsif public_key.detect {|k| k[:kid].present? }
+            public_key
+          else
+            public_key.first
+          end
+        ::OpenIDConnect::ResponseObject::IdToken.decode(id_token, real_public_key)
       end
 
       def client_options
